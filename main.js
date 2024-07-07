@@ -60,6 +60,8 @@ Alpine.data('posts', () => ({
         this.posts = JSON.parse(localStorage.getItem('posts')) ?? [];
         this.posts = this.posts.filter(item=> item.userId == this.userId);
         this.userId = null;
+        document.getElementById("getId").blur()
+
     },
     deletePost(id){
         this.posts = this.posts.filter(post => post.id != id);

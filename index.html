@@ -45,9 +45,8 @@
                 <label for="getId">enter your user id :</label>
                 <div class="input-group mb-4">
                     <input name="getId" id="getId" class="form-control col-3" type="number" required value=""
-                           placeholder="User-ID" x-model="userId" @keyup.enter="filterPosts" @click="(console.log(e))">
-                    <button class="btn btn-primary" id="search" @click="filterPosts"><a
-                            href="#" class="link-underline-opacity-0 link-light">search</a></button>
+                           placeholder="User-ID" x-model="userId" @keyup.enter="filterPosts">
+                    <button class="btn btn-primary" id="search" @click="filterPosts">search</button>
                 </div>
             </div>
         </div>
