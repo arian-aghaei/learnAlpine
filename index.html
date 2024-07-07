@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alpine</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="mx-auto col-3 my-5">
+        <h2 class="text-center">Wellcome Page</h2>
+    </div>
+    <label>List of Users:</label>
+    <table class="table table-hover table-striped table-responsive">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Phone</th>
+            <th>Manage</th>
+        </tr>
+        </thead>
+        <tbody id="tbody" x-data="users" >
+        <template x-for="user in users" >
+            <tr @click="deleteUser(user.id)">
+                <td x-text="user.id"></td>
+                <td x-text="user.name"></td>
+                <td x-text="user.username"></td>
+                <td x-text="user.phone"></td>
+                <td>
+                    <a :href="'./post.html?name='+user.name" class="btn btn-secondary" target="_blank">Show</a>
+                </td>
+            </tr>
+        </template>
+        </tbody>
+    </table>
+    <div class="row" x-data="posts">
+        <div class="col-12">
+            <div class="mt-5 col-md-3 col">
+                <label for="getId">enter your user id :</label>
+                <div class="input-group mb-4">
+                    <input name="getId" id="getId" class="form-control col-3" type="number" required value=""
+                           placeholder="User-ID" x-model="userId" @keyup.enter="filterPosts" @click="(console.log(e))">
+                    <button class="btn btn-primary" id="search" @click="filterPosts"><a
+                            href="#" class="link-underline-opacity-0 link-light">search</a></button>
+                </div>
+            </div>
+        </div>
+        <template x-for="post in posts">
+            <div class="col-md-6 col-lg-4 p-2" >
+                <div class="card">
+                    <div class="card-body p-0">
+                        <h4 class="p-3 clamp-1" x-text="post.title"></h4>
+
+                        <p class="text-start p-3 clamp-2" x-text="post.body"></p>
+
+                        <div class="justify-content-between row">
+                            <div class="d-flex m-3 col">
+                                <button type="button" class="btn btn-outline-secondary" @click="deletePost(post.id)">dont show</button>
+                            </div>
+                            <span class="col-2 my-auto" x-text="post.userId"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
+<script src="./main.js" type="module"></script>
+</body>
+</html>

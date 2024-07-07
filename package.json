@@ -1,0 +1,19 @@
+{
+  "name": "alpine",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1"
+  },
+  "dependencies": {
+    "alpine": "^0.2.1",
+    "alpinejs": "^3.14.1",
+    "bootstrap": "^5.3.3"
+  }
+}
